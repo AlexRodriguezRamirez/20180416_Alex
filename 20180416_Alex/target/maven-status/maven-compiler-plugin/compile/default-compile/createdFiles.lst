@@ -1,0 +1,6 @@
+es\albarregas\controllers\Controlador.class
+es\albarregas\models\Resta.class
+es\albarregas\models\Division.class
+es\albarregas\models\Multiplicacion.class
+es\albarregas\models\Suma.class
+es\albarregas\beans\Calculadora.class
