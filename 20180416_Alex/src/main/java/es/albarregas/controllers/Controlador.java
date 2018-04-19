@@ -63,6 +63,8 @@ public class Controlador extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        String url = null;
+        boolean error = false;
         String operacion = request.getParameter("Operacion");
         int num1 = Integer.parseInt(request.getParameter("Operando1"));
         int num2 = Integer.parseInt(request.getParameter("Operando2"));
@@ -91,13 +93,38 @@ public class Controlador extends HttpServlet {
                 break;
                 
             case "Division":
-                Division miDivision = new Division();
-                miCalculadora.setSigno("/");
-                miCalculadora.setResultado(miDivision.dividir(num1, num2));
+                if (num2 == 0) {
+                    error = true;
+                }
+                
+                else {
+                    Division miDivision = new Division();
+                    miCalculadora.setSigno("/");
+                    miCalculadora.setResultado(miDivision.dividir(num1, num2));
+                }
+                
                 break;
         }
         
-        String url = "JSP/resultado.jsp";
+        if (!error) {
+            if (!request.getParameter("Tipo").equals("JSTL")) {
+                url = "JSP/resultado.jsp";
+            }
+            else {
+                url = "JSP/resultadoJSTL.jsp";
+            }
+        }
+        
+        else {
+            if (!request.getParameter("Tipo").equals("JSTL")) {
+                url = "JSP/error.jsp";
+            }
+            else {
+                url = "JSP/errorJSTL.jsp";
+            }
+        }
+        
+        
         request.setAttribute("datos", miCalculadora);
         request.getRequestDispatcher(url).forward(request, response);
         

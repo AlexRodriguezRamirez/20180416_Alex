@@ -10,8 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Error</title>
+        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/estilos.css"/>
     </head>
-    <body>
-        
+    <body class="contenido">
+        <h3>No se puede dividir entre 0.</h3>
+        <a href="<%=request.getContextPath()%>">Volver</a>
     </body>
 </html>

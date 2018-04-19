@@ -11,10 +11,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Resultado</title>
-        <link rel="stylesheet" type="text/css" href="CSS/estilos.css"/>
+        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/estilos.css"/>
     </head>
     <body class="contenido">
-        <%@include file="/INC/cabecera.inc"%>
+        <%@include file="../INC/cabecera.inc"%>
         <%
             Calculadora miCalculadora = (Calculadora) request.getAttribute("datos");
         %>

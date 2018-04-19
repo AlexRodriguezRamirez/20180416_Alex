@@ -1,3 +1,3 @@
 <div class="titulo">
-    <img src="Imagenes/cabecera.png">
+    <img src="<%=request.getContextPath()%>/Imagenes/cabecera.png">
 </div>
